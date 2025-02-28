@@ -6,26 +6,26 @@ export default function Header() {
             <header>
         <nav>
           <div className="logo">
-            <a href="#">BarberShop</a>
+            <a href="/">BarberShop</a>
           </div>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">Shop</a>
+              <a href="/shop">Shop</a>
             </li>
             <li>
-              <a href="#">About Us</a>
+              <a href="/about-us">About Us</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="/contact">Contact</a>
             </li>
             <li>
-              <a href="#">Cart</a>
+              <a href="/cart">Cart</a>
             </li>
             <li>
-              <a href="#">Login</a>
+              <a href="/login">Login</a>
             </li>
           </ul>
         </nav>

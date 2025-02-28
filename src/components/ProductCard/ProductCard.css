@@ -1,16 +1,7 @@
-.featured-products {
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
-  .featured-products h2 {
-    margin-bottom: 30px;
-  }
-  
-  .product-card {
+.product-card {
     display: inline-block;
     width: 300px;
-    margin: 0 15px;
+    margin: 15px;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
