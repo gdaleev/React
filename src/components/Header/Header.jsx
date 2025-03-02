@@ -27,6 +27,9 @@ export default function Header() {
             <li>
               <a href="/login">Login</a>
             </li>
+            <li>
+              <a href="/profile">User Profile</a>
+            </li>
           </ul>
         </nav>
       </header>

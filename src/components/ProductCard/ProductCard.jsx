@@ -8,7 +8,7 @@ export default function ProductCard() {
             <h3>Premium Beard Oil</h3>
             <p>Keeps your beard soft...</p>
             <p className="price">$19.99</p>
-            <button>Add to Cart</button>
+            <a href="/cart"><button>Add to Cart</button></a>
         </div>
         </>
         

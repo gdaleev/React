@@ -7,9 +7,9 @@ export default function HeroSection() {
         <div className="hero-content">
           <h1>Welcome to BarberShop Essentials</h1>
           <p>Your one-stop shop for the best grooming products</p>
-          <a href="/shop" className="cta-button">
+          {/* <a href="/shop" className="cta-button">
             Shop Now
-          </a>
+          </a> */}
         </div>
       </section>
         </>

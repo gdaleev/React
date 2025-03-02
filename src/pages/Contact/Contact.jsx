@@ -27,13 +27,13 @@ export default function Contact() {
           </div>
         </div>
 
-        <h2>📩 Send us a Message</h2>
+        {/* <h2>📩 Send us a Message</h2>
         <form className="contact-form">
           <input type="text" placeholder="Your Name" required />
           <input type="email" placeholder="Your Email" required />
           <textarea placeholder="Your Message" required></textarea>
           <button type="submit">Send Message</button>
-        </form>
+        </form> */}
       </div>
       <Footer />
     </>

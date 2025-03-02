@@ -23,7 +23,7 @@ function ProductDetails() {
         <h1>{product.name}</h1>
         <p>{product.description}</p>
         <h2>${product.price.toFixed(2)}</h2>
-        <button className="add-to-cart">Add to Cart</button>
+        <a href="/cart"><button className="add-to-cart">Add to Cart</button></a>
       </div>
     </div>
     <Footer />

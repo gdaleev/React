@@ -7,10 +7,10 @@ export default function Footer() {
         <p>&copy; 2025 BarberShop. All Rights Reserved.</p>
         <ul>
           <li>
-            <a href="#">Terms</a>
+          <a href="#" className="fa fa-facebook"></a>
           </li>
           <li>
-            <a href="#">Privacy</a>
+          <a href="#" className="fa fa-instagram"></a>
           </li>
         </ul>
       </footer>
