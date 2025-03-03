@@ -1,9 +1,12 @@
-import './Header.css';
+import "./Header.css";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Header() {
-    return (
-        <>
-            <header>
+  const { user, logout } = useAuth();
+
+  return (
+    <>
+      <header>
         <nav>
           <div className="logo">
             <a href="/">BarberShop</a>
@@ -24,16 +27,24 @@ export default function Header() {
             <li>
               <a href="/cart">Cart</a>
             </li>
-            <li>
-              <a href="/login">Login</a>
-            </li>
-            <li>
-              <a href="/profile">User Profile</a>
-            </li>
+
+            {user ? (
+              <>
+                <li>
+                  <a href="/profile">Your Profile</a>
+                </li>
+                <li>
+                  <a onClick={logout}>Logout</a>
+                </li>
+              </>
+            ) : (
+              <li>
+                <a href="/login">Sign In</a>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
-
-        </>
-    )
+    </>
+  );
 }

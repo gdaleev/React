@@ -1,15 +1,15 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import {signInWithEmailAndPassword} from "firebase/auth";
-import {auth} from "../../firebase";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import "./Login.css";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const {login} = useAuth();
   const navigate = useNavigate();
 
   async function handleLogin(e) {
@@ -17,8 +17,8 @@ export default function Login() {
     setError(null);
     
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/profile");
+      await login(email, password);
+      navigate("/");
     } catch {
       setError("Invalid email or password.");
     }
@@ -28,7 +28,7 @@ export default function Login() {
     <>
       <Header />
       <div className="auth-container">
-        <h2>Login</h2>
+        <h2>Sign In</h2>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleLogin}>
           <label htmlFor="email">Email:</label>
@@ -51,10 +51,10 @@ export default function Login() {
             required
           />
 
-          <button type="submit">Login</button>
+          <button type="submit">Sign In</button>
           <p>
             Don&apos;t have an account?{" "}
-            <a href="/register">Register here</a>
+            <a href="/register">Sign Up</a>
           </p>
         </form>
       </div>

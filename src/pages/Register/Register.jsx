@@ -38,7 +38,7 @@ export default function Register() {
     <>
       <Header />
       <div className="auth-container">
-        <h2>Register</h2>
+        <h2>Sign Up</h2>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleRegister}>
           <label htmlFor="email">Email:</label>
@@ -71,9 +71,9 @@ export default function Register() {
             required
           />
 
-          <button type="submit">Register</button>
+          <button type="submit">Sign Up</button>
           <p>
-            Already have an account? <a href="/login">Login here</a>
+            Already have an account? <a href="/login">Sign In</a>
           </p>
         </form>
       </div>
