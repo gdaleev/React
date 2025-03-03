@@ -1,4 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { db } from "./firebase";
+// import { collection, getDocs } from "firebase/firestore";
+// import { useEffect } from "react";
+
 import Home from "./pages/Home";
 import "./App.css";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
@@ -12,6 +16,31 @@ import Checkout from "./pages/Checkout/Checkout";
 import Profile from "./pages/Profile/Profile";
 
 function App() {
+
+  //Test fetching data from Firestore
+
+  // useEffect(() => {
+  //   async function fetchOrders() {
+  //     try {
+  //       console.log("Fetching orders...");
+  //       const querySnapshot = await getDocs(collection(db, "orders"));
+        
+  //       if (querySnapshot.empty) {
+  //         console.log("No orders found.");
+  //       } else {
+  //         querySnapshot.forEach((doc) => {
+  //           console.log(doc.id, " => ", doc.data());
+  //         });
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching orders:", error);
+  //     }
+  //   }
+  
+  //   fetchOrders();
+  // }, []);
+  
+
   return (
     <>
       <Router>
