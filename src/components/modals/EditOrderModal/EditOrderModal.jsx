@@ -6,21 +6,18 @@ export default function EditOrderModal({ closeModal }) {
           <div className="edit-order-container">
             <h2>Edit Order</h2>
             <form>
-              <label htmlFor="orderName">Order Name:</label>
+              <label htmlFor="address">Address:</label>
               <input
                 type="text"
-                id="orderName"
-                placeholder="Enter order name"
+                id="address"
+                placeholder="Enter new address"
                 required
               />
-
-              <label htmlFor="orderQuantity">Quantity:</label>
-              <input type="number" id="orderQuantity" required />
 
               <label htmlFor="orderNotes">Additional Notes:</label>
               <textarea
                 id="orderNotes"
-                placeholder="Enter any special requests"
+                placeholder="Enter new special requests"
               ></textarea>
 
               <button type="submit" className="btn-save">

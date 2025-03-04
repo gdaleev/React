@@ -7,13 +7,13 @@ import "./Checkout.css";
 export default function Checkout() {
   const [modalOpen, setModalOpen] = useState(false);
 
-    function openModal() {
-        setModalOpen(true);
-    }
+  function openModal() {
+    setModalOpen(true);
+  }
 
-    function closeModal() {
-        setModalOpen(false);
-    }
+  function closeModal() {
+    setModalOpen(false);
+  }
 
   return (
     <>
@@ -38,8 +38,17 @@ export default function Checkout() {
             <option value="paypal">PayPal</option>
             <option value="cash">Cash on Delivery</option>
           </select>
+
+          <label htmlFor="orderNotes">Additional Notes:</label>
+          <textarea
+            id="orderNotes"
+            placeholder="Enter any special requests"
+          ></textarea>
+
           <a href="">
-            <button onClick={openModal} type="submit">Place Order</button>
+            <button onClick={openModal} type="submit">
+              Place Order
+            </button>
           </a>
 
           <a href="/cart">

@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useAuth } from "./context/AuthContext";
+import ProtectedRoute from "./components/routes/ProtectedRoute";
+import { Navigate } from "react-router-dom";
 // import { db } from "./firebase";
 // import { collection, getDocs } from "firebase/firestore";
 // import { useEffect } from "react";
@@ -39,6 +42,8 @@ function App() {
   
   //   fetchOrders();
   // }, []);
+
+  const { user } = useAuth();
   
 
   return (
@@ -51,10 +56,10 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={user ? <Navigate to="/" replace/> : <Login />} />
+        <Route path="/register" element={user ? <Navigate to="/" replace/> : <Register />} />
+        <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       </Routes>
     </Router>
     </>
