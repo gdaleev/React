@@ -1,18 +1,25 @@
 import "./ProductCard.css";
 
-export default function ProductCard() {
-    return (
-        <>
-        <div className="product-card">
-            <a href="/product"><img src="https://m.media-amazon.com/images/I/81DycYsQi0L._SL1500_.jpg" alt="product name" /></a>
-            <h3>Premium Beard Oil</h3>
-            <p>Keeps your beard soft...</p>
-            <p className="price">$19.99</p>
-            <a href="/cart"><button>Add to Cart</button></a>
+export default function ProductCard({ product }) {
+  function truncateDescription(text, maxLength) {
+    return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+  }
+
+  return (
+    <>
+      <div className="product-card">
+        <div className="product-info">
+          <a href="/product">
+            <img src={product.imageUrl} alt={product.name} />
+          </a>
+          <h3>{product.name}</h3>
+          <p>{truncateDescription(product.description, 50)}</p>
+          <p className="price">${product.price}</p>
+          <a href="/cart">
+            <button>Add to Cart</button>
+          </a>
         </div>
-        </>
-        
-    );
+      </div>
+    </>
+  );
 }
-
-
