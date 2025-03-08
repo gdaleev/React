@@ -1,16 +1,19 @@
 import "./RemoveProductModal.css";
 
-export default function RemoveProductModal({closeModal}) {
+export default function RemoveProductModal({ closeModal, confirmRemove }) {
   return (
-    <>
-      <div className="modal-overlay" id="removeProductModal">
-        <div className="modal">
-          <h3>Remove Product</h3>
-          <p>Are you sure you want to remove this product from your cart?</p>
-          <button className="btn-confirm">Yes, Remove</button>
-          <button onClick={closeModal} className="btn-cancel">Cancel</button>
+    <div className="modal-overlay">
+      <div className="modal">
+        <h3>Are you sure you want to remove this item?</h3>
+        <div className="modal-actions">
+          <button onClick={confirmRemove} className="btn-confirm">
+            Yes, Remove
+          </button>
+          <button onClick={closeModal} className="btn-cancel">
+            Cancel
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

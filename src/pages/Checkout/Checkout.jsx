@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import PlaceOrderModal from "../../components/modals/placeOrderModal/PlaceOrderModal";
+import PlaceOrderModal from "../../components/modals/PlaceOrderModal/PlaceOrderModal";
 import "./Checkout.css";
 
 export default function Checkout() {

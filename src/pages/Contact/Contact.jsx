@@ -8,9 +8,7 @@ export default function Contact() {
       <Header />
       <div className="contact-container">
         <h1>Contact Us</h1>
-        <p>
-          Have questions? Reach out to us, and we’ll be happy to help!
-        </p>
+        <p>Have questions? Reach out to us, and we’ll be happy to help!</p>
 
         <div className="contact-info">
           <div>
@@ -26,14 +24,6 @@ export default function Contact() {
             <p>+359 888 123 456</p>
           </div>
         </div>
-
-        {/* <h2>📩 Send us a Message</h2>
-        <form className="contact-form">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form> */}
       </div>
       <Footer />
     </>

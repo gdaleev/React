@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import Header from "../../components/Header/Header";
@@ -8,8 +9,15 @@ import "./ProductDetails.css";
 
 export default function ProductDetails() {
   const { id } = useParams();
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  function handleAddToCart() {
+    addToCart(product);
+    navigate("/cart");
+  }
 
   useEffect(() => {
     async function fetchProduct() {
@@ -57,7 +65,9 @@ export default function ProductDetails() {
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           <p className="price">${product.price}</p>
-          <button className="add-to-cart-btn">Add to Cart</button>
+          <button onClick={handleAddToCart} className="add-to-cart-btn">
+            Add to Cart
+          </button>
         </div>
       </div>
       <Footer />

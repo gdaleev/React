@@ -23,11 +23,7 @@ export default function Register() {
     setError(null);
 
     try {
-      await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      await createUserWithEmailAndPassword(auth, email, password);
       navigate("/profile");
     } catch (error) {
       setError(error.message);

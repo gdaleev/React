@@ -1,10 +1,8 @@
 .featured-products {
-    padding: 20px 20px;
-    text-align: center;
-  }
-  
-  .featured-products h2 {
-    margin-bottom: 30px;
-  }
-  
-  
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.featured-products h2 {
+  margin-bottom: 30px;
+}

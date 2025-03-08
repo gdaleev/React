@@ -1,7 +1,7 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useAuth } from "../../context/AuthContext";
 
@@ -9,13 +9,13 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const {login} = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   async function handleLogin(e) {
     e.preventDefault();
     setError(null);
-    
+
     try {
       await login(email, password);
       navigate("/");
@@ -53,8 +53,7 @@ export default function Login() {
 
           <button type="submit">Sign In</button>
           <p>
-            Don&apos;t have an account?{" "}
-            <a href="/register">Sign Up</a>
+            Don&apos;t have an account? <a href="/register">Sign Up</a>
           </p>
         </form>
       </div>

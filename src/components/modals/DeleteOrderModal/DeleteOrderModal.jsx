@@ -1,6 +1,6 @@
 import "./DeleteOrderModal.css";
 
-export default function DeleteOrderModal({closeModal}) {
+export default function DeleteOrderModal({ closeModal }) {
   return (
     <>
       <div className="modal-overlay" id="DeleteOrderModal">
@@ -8,7 +8,9 @@ export default function DeleteOrderModal({closeModal}) {
           <h3>Delete Order</h3>
           <p>Are you sure you want to delete this order from your history?</p>
           <button className="btn-confirm">Yes, Remove</button>
-          <button onClick={closeModal} className="btn-cancel">Cancel</button>
+          <button onClick={closeModal} className="btn-cancel">
+            Cancel
+          </button>
         </div>
       </div>
     </>

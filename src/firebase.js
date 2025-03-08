@@ -12,7 +12,7 @@ const firebaseConfig = {
   projectId: "barbershop-ecommerce",
   storageBucket: "barbershop-ecommerce.firebasestorage.app",
   messagingSenderId: "101747877204",
-  appId: "1:101747877204:web:842fa472ab0cdc31ded4c1"
+  appId: "1:101747877204:web:842fa472ab0cdc31ded4c1",
 };
 
 // Initialize Firebase

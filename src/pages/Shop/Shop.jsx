@@ -27,20 +27,18 @@ export default function Shop() {
     fetchProducts();
   }, []);
 
-  
   return (
     <>
       <Header />
       <h2>Shop</h2>
       <div className="shop-container">
-      
-      {products.length > 0 ? (
-              products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))
-            ) : (
-              <p>No products available.</p>
-            )}
+        {products.length > 0 ? (
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <p>No products available.</p>
+        )}
       </div>
       <Footer />
     </>
