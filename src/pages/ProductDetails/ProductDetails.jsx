@@ -1,34 +1,66 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./ProductDetails.css";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import "./ProductDetails.css";
 
-function ProductDetails() {
+export default function ProductDetails() {
   const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const product = {
-    id,
-    name: "Premium Beard Oil",
-    description: "Keeps your beard soft, smooth, and healthy.",
-    price: 19.99,
-    image: "https://m.media-amazon.com/images/I/81DycYsQi0L._SL1500_.jpg",
-  };
+  useEffect(() => {
+    async function fetchProduct() {
+      try {
+        console.log("Fetching product with ID:", id);
+        const productRef = doc(db, "products", id);
+        const productSnap = await getDoc(productRef);
+
+        if (productSnap.exists()) {
+          setProduct({ id: productSnap.id, ...productSnap.data() });
+        } else {
+          console.error("Product not found in Firestore.");
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProduct();
+  }, [id]);
+
+  if (loading) {
+    return <p>Loading product details...</p>;
+  }
+
+  if (!product) {
+    return <p>Product not found.</p>;
+  }
 
   return (
     <>
-    <Header />
-    <div className="product-details">
-      <img src={product.image} alt={product.name} className="product-image" />
-      <div className="product-info">
-        <h1>{product.name}</h1>
-        <p>{product.description}</p>
-        <h2>${product.price.toFixed(2)}</h2>
-        <a href="/cart"><button className="add-to-cart">Add to Cart</button></a>
+      <Header />
+      <div className="product-details">
+        <div className="img-container">
+          <img
+            src={product.imageUrl}
+            alt={product.name}
+            className="product-image"
+          />
+        </div>
+
+        <div className="product-data">
+          <h2>{product.name}</h2>
+          <p>{product.description}</p>
+          <p className="price">${product.price}</p>
+          <button className="add-to-cart-btn">Add to Cart</button>
+        </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </>
   );
 }
-
-export default ProductDetails;

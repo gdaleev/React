@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
 export default function ProductCard({ product }) {
@@ -9,9 +10,9 @@ export default function ProductCard({ product }) {
     <>
       <div className="product-card">
         <div className="product-info">
-          <a href="/product">
-            <img src={product.imageUrl} alt={product.name} />
-          </a>
+          <Link to={`/product/${product.id}`}>
+          <img src={product.imageUrl} alt={product.name} />
+          </Link>
           <h3>{product.name}</h3>
           <p>{truncateDescription(product.description, 50)}</p>
           <p className="price">${product.price}</p>

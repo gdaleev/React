@@ -6,14 +6,28 @@
   }
   
   .product-image {
-    width: 500px;
-    height: auto;
+    width: 500px;  
+    height: 500px; 
+    object-fit: cover;
     border-radius: 10px;
     margin-right: 20px;
   }
   
-  .product-info {
+  .product-data {
+    display: flex;
+    flex-direction: column;
     max-width: 400px;
+    gap: 10px;
+  }
+
+  .price {
+    font-size: 20px;
+    color: #ff9900;
+    margin-top: auto;
+  }
+
+  .add-to-cart-btn {
+    width: 100px;
   }
   
   .add-to-cart {
