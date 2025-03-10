@@ -1,14 +1,30 @@
 import { useState } from "react";
-import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import RemoveProductModal from "../../components/modals/RemoveProductModal/RemoveProductModal";
 import "./Cart.css";
+import { useNavigate } from "react-router-dom";
+// import { addOrder } from "../../services/addOrder";
+import { useCart } from "../../context/CartContext";
 
 export default function Cart() {
-  const { cart, removeFromCart } = useCart();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const { cart, removeFromCart } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    if (!user) {
+      alert("You must be logged in to checkout.");
+      navigate("/login");
+      return;
+    }
+  
+    navigate("/checkout", { state: { cart } });
+  };
+  
 
   function openModal(productId) {
     setSelectedProduct(productId);
@@ -72,9 +88,10 @@ export default function Cart() {
               .reduce((acc, item) => acc + item.price * item.quantity, 0)
               .toFixed(2)}
           </h3>
-          <a href="/checkout">
-            <button className="checkout-btn">Proceed to Checkout</button>
-          </a>
+
+          <button className="checkout-btn" onClick={handleCheckout}>
+            Proceed to Checkout
+          </button>
         </div>
       </div>
 

@@ -49,3 +49,9 @@ button.cancel {
 button:hover {
   opacity: 0.8;
 }
+
+.error-message {
+  color: red;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
