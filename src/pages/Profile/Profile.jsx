@@ -11,9 +11,10 @@ import { getOrders } from "../../services/getOrders";
 export default function Profile() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null); 
+  const [orders, setOrders] = useState([]);
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     if (!user) {
@@ -21,26 +22,35 @@ export default function Profile() {
     }
   }, [user, navigate]);
 
-  useEffect(() => {
+  const fetchOrders = () => {
     if (user) {
-      getOrders(user.uid).then((setOrders));
+      getOrders(user.uid).then(setOrders);
     }
+  };
+
+  useEffect(() => {
+    fetchOrders();
   }, [user]);
 
-  function openEditModal() {
+  const openEditModal = (order) => {
+    setSelectedOrder(order);
     setEditModalOpen(true);
-  }
+  };
 
-  function closeEditModal() {
+  const closeEditModal = () => {
     setEditModalOpen(false);
-  }
-  function openDeleteModal() {
-    setDeleteModalOpen(true);
-  }
+    setSelectedOrder(null);
+  };
 
-  function closeDeleteModal() {
+  const openDeleteModal = (order) => {
+    setSelectedOrder(order);
+    setDeleteModalOpen(true);
+  };
+
+  const closeDeleteModal = () => {
     setDeleteModalOpen(false);
-  }
+    setSelectedOrder(null);
+  };
 
   return (
     <>
@@ -82,8 +92,23 @@ export default function Profile() {
           ))
         )}
       </div>
-      {editModalOpen && <EditOrderModal closeModal={closeEditModal} />}
-      {deleteModalOpen && <DeleteOrderModal closeModal={closeDeleteModal} />}
+
+      {editModalOpen && selectedOrder && (
+        <EditOrderModal
+          order={selectedOrder}
+          closeModal={closeEditModal}
+          refreshOrders={fetchOrders}
+        />
+      )}
+
+      {deleteModalOpen && selectedOrder && (
+        <DeleteOrderModal
+          order={selectedOrder}
+          closeModal={closeDeleteModal}
+          refreshOrders={fetchOrders}
+        />
+      )}
+
       <Footer />
     </>
   );
