@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -7,10 +8,10 @@ export default function Footer() {
         <p>&copy; 2025 BarberShop. All Rights Reserved.</p>
         <ul>
           <li>
-            <a href="#" className="fa fa-facebook"></a>
+            <Link className="fa fa-facebook"></Link>
           </li>
           <li>
-            <a href="#" className="fa fa-instagram"></a>
+            <Link className="fa fa-instagram"></Link>
           </li>
         </ul>
       </footer>

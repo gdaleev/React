@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useAuth } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -53,7 +54,7 @@ export default function Login() {
 
           <button type="submit">Sign In</button>
           <p>
-            Don&apos;t have an account? <a href="/register">Sign Up</a>
+            Don&apos;t have an account? <Link to="/register">Sign Up</Link>
           </p>
         </form>
       </div>

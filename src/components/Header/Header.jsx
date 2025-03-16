@@ -1,5 +1,6 @@
 import "./Header.css";
 import { useAuth } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -9,37 +10,37 @@ export default function Header() {
       <header>
         <nav>
           <div className="logo">
-            <a href="/">BarberShop</a>
+            <Link to="/">BarberShop</Link>
           </div>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/shop">Shop</a>
+              <Link to="/shop">Shop</Link>
             </li>
             <li>
-              <a href="/about-us">About Us</a>
+              <Link to="/about-us">About Us</Link>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <a href="/cart">Cart</a>
+              <Link to="/cart">Cart</Link>
             </li>
 
             {user ? (
               <>
                 <li>
-                  <a href="/profile">Your Profile</a>
+                  <Link to="/profile">Your Profile</Link>
                 </li>
                 <li>
-                  <a onClick={logout}>Logout</a>
+                  <Link onClick={logout}>Logout</Link>
                 </li>
               </>
             ) : (
               <li>
-                <a href="/login">Sign In</a>
+                <Link to="/login">Sign In</Link>
               </li>
             )}
           </ul>

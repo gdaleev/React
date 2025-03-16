@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import Footer from "../../components/Footer/Footer";
@@ -14,12 +14,13 @@ export default function Register() {
   const navigate = useNavigate();
 
   async function handleRegister(e) {
+    e.preventDefault();
+    
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
 
-    e.preventDefault();
     setError(null);
 
     try {
@@ -69,7 +70,7 @@ export default function Register() {
 
           <button type="submit">Sign Up</button>
           <p>
-            Already have an account? <a href="/login">Sign In</a>
+            Already have an account? <Link to="/login">Sign In</Link>
           </p>
         </form>
       </div>
