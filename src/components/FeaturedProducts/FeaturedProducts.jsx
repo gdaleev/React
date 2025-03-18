@@ -30,9 +30,11 @@ export default function FeaturedProducts() {
     <>
       <section className="featured-products">
         <h2>Featured Products</h2>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        <div className="product-grid">
+    {products.map((product) => (
+      <ProductCard key={product.id} product={product} />
+    ))}
+  </div>
       </section>
     </>
   );

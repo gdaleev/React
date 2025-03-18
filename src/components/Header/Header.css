@@ -1,5 +1,5 @@
 header {
-  background: #333;
+  background: #333333;
   padding: 10px 0;
   color: white;
 }
@@ -14,10 +14,14 @@ header .logo {
   margin-left: 15px;
 }
 
-header .logo a {
-  color: white;
-  font-size: 24px;
-  text-decoration: none;
+header .logo img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+header .logo img:hover {
+  transform: translateX(5px);
 }
 
 header ul {
@@ -26,14 +30,33 @@ header ul {
 }
 
 header ul li {
-  margin: 0 15px;
+  margin: 0 20px;
 }
 
 header ul li a {
   color: white;
   text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+header ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; 
+  width: 100%;
+  height: 2px;
+  background-color: gold;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
 }
 
 header ul li a:hover {
-  text-decoration: underline;
+  color: gold; 
+}
+
+header ul li a:hover::after {
+  transform: scaleX(1);
 }

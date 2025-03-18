@@ -1,8 +1,18 @@
 .featured-products {
-  padding: 20px 20px;
+  padding: 40px 20px 80px 20px;
   text-align: center;
+  background: #f8f8f8;
 }
 
 .featured-products h2 {
-  margin-bottom: 30px;
+  font-size: 30px;
+  margin-bottom: 100px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px; 
+  padding: 0 10px;
 }

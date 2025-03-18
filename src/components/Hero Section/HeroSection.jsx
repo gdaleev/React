@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./HeroSection.css";
 
 export default function HeroSection() {
@@ -5,8 +6,11 @@ export default function HeroSection() {
     <>
       <section className="hero">
         <div className="hero-content">
-          <h1>Welcome to BarberShop Essentials</h1>
-          <p>Your one-stop shop for the best grooming products</p>
+          <h1>Premium Grooming Essentials</h1>
+          <p>Barbershop-quality tools and products, now available online.</p>
+          <Link to="/shop" className="btn">
+            Shop Now
+          </Link>
         </div>
       </section>
     </>
