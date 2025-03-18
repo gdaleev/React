@@ -13,6 +13,8 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Checkout from "./pages/Checkout/Checkout";
 import Profile from "./pages/Profile/Profile";
+import NotFound from "./pages/NotFound/NotFound";
+
 
 function App() {
   const { user } = useAuth();
@@ -26,6 +28,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/login"
           element={user ? <Navigate to="/" replace /> : <Login />}
