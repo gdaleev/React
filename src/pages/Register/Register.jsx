@@ -13,7 +13,7 @@ export default function Register() {
 
   async function handleRegister(e) {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
@@ -25,7 +25,11 @@ export default function Register() {
       await createUserWithEmailAndPassword(auth, email, password);
       navigate("/profile");
     } catch (error) {
-      setError(error.message);
+      if (error.code === "auth/email-already-in-use") {
+        setError("Email already exists.");
+      } else {
+        setError("Failed to create an account. Please try again.");
+      }
     }
   }
 

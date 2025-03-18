@@ -3,8 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import "./ProductDetails.css";
 
 export default function ProductDetails() {
@@ -51,7 +49,6 @@ export default function ProductDetails() {
 
   return (
     <>
-      <Header />
       <div className="product-details">
         <div className="img-container">
           <img
@@ -70,7 +67,6 @@ export default function ProductDetails() {
           </button>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

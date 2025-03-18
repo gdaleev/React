@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import PlaceOrderModal from "../../components/modals/PlaceOrderModal/PlaceOrderModal";
 import { addOrder } from "../../services/addOrder";
 import { useCart } from "../../context/CartContext";
@@ -55,7 +53,6 @@ export default function Checkout() {
 
   return (
     <>
-      <Header />
       <div className="checkout-container">
         <h2>Checkout</h2>
 
@@ -114,8 +111,6 @@ export default function Checkout() {
           orderDetails={{ address, payment, notes }}
         />
       )}
-
-      <Footer />
     </>
   );
 }
