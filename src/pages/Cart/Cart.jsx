@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import RemoveProductModal from "../../components/modals/RemoveProductModal/RemoveProductModal";
 import "./Cart.css";
 import { useNavigate } from "react-router-dom";
-// import { addOrder } from "../../services/addOrder";
 import { useCart } from "../../context/CartContext";
 
 export default function Cart() {
@@ -38,7 +35,6 @@ export default function Cart() {
 
   return (
     <>
-      <Header />
       <div className="cart-container">
         <h2>Shopping Cart</h2>
 
@@ -105,7 +101,6 @@ export default function Cart() {
         />
       )}
 
-      <Footer />
     </>
   );
 }

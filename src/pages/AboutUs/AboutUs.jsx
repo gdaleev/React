@@ -1,11 +1,9 @@
 import "./AboutUs.css";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+
 
 export default function AboutUs() {
   return (
     <>
-      <Header />
       <div className="about-container">
         <h1>About Us</h1>
         <p>
@@ -29,7 +27,6 @@ export default function AboutUs() {
           <li>🛒 Secure and easy online shopping</li>
         </ul>
       </div>
-      <Footer />
     </>
   );
 }

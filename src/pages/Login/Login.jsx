@@ -1,5 +1,3 @@
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
@@ -27,7 +25,6 @@ export default function Login() {
 
   return (
     <>
-      <Header />
       <div className="auth-container">
         <h2>Sign In</h2>
         {error && <p className="error">{error}</p>}
@@ -58,8 +55,6 @@ export default function Login() {
           </p>
         </form>
       </div>
-
-      <Footer />
     </>
   );
 }

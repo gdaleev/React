@@ -1,11 +1,8 @@
 import "./Contact.css";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 
 export default function Contact() {
   return (
     <>
-      <Header />
       <div className="contact-container">
         <h1>Contact Us</h1>
         <p>Have questions? Reach out to us, and we’ll be happy to help!</p>
@@ -25,7 +22,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

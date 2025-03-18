@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import "./Profile.css";
 import EditOrderModal from "../../components/modals/EditOrderModal/EditOrderModal";
 import DeleteOrderModal from "../../components/modals/DeleteOrderModal/DeleteOrderModal";
@@ -54,10 +52,9 @@ export default function Profile() {
 
   return (
     <>
-      <Header />
       <div className="profile-container">
         <h2>Your Profile</h2>
-        <h3>Welcome, {user?.email}</h3>
+        <h3>Welcome, {user?.email}!</h3>
 
         <h3>Order History</h3>
         {orders.length === 0 ? (
@@ -108,8 +105,6 @@ export default function Profile() {
           refreshOrders={fetchOrders}
         />
       )}
-
-      <Footer />
     </>
   );
 }

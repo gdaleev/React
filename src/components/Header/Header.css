@@ -10,6 +10,10 @@ header nav {
   align-items: center;
 }
 
+header .logo {
+  margin-left: 15px;
+}
+
 header .logo a {
   color: white;
   font-size: 24px;

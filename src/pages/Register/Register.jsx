@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import "./Register.css";
 
 export default function Register() {
@@ -33,7 +31,6 @@ export default function Register() {
 
   return (
     <>
-      <Header />
       <div className="auth-container">
         <h2>Sign Up</h2>
         {error && <p className="error">{error}</p>}
@@ -74,8 +71,6 @@ export default function Register() {
           </p>
         </form>
       </div>
-
-      <Footer />
     </>
   );
 }

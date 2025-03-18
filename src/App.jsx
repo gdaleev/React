@@ -14,6 +14,7 @@ import Register from "./pages/Register/Register";
 import Checkout from "./pages/Checkout/Checkout";
 import Profile from "./pages/Profile/Profile";
 import NotFound from "./pages/NotFound/NotFound";
+import Layout from "./components/Layout/Layout";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <Router>
+      <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />
@@ -54,6 +56,7 @@ function App() {
           }
         />
       </Routes>
+      </Layout>
     </Router>
   );
 }
