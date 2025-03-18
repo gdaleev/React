@@ -89,7 +89,7 @@ export default function Cart() {
               .toFixed(2)}
           </h3>
 
-          <button className="checkout-btn" onClick={handleCheckout}>
+          <button className="checkout-btn" onClick={handleCheckout} disabled={cart.length === 0}>
             Proceed to Checkout
           </button>
         </div>

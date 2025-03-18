@@ -81,3 +81,8 @@ h1 {
 .checkout-btn:hover {
   background: #218838;
 }
+
+.checkout-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
