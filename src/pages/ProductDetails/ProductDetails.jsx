@@ -50,13 +50,11 @@ export default function ProductDetails() {
   return (
     <>
       <div className="product-details">
-        <div className="img-container">
           <img
             src={product.imageUrl}
             alt={product.name}
             className="product-image"
           />
-        </div>
 
         <div className="product-data">
           <h2>{product.name}</h2>

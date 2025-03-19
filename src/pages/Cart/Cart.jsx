@@ -78,12 +78,12 @@ export default function Cart() {
         )}
 
         <div className="cart-total">
-          <h3>
+          <p>
             Total: $
             {cart
               .reduce((acc, item) => acc + item.price * item.quantity, 0)
               .toFixed(2)}
-          </h3>
+          </p>
 
           <button className="checkout-btn" onClick={handleCheckout} disabled={cart.length === 0}>
             Proceed to Checkout

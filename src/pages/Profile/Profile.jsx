@@ -9,7 +9,7 @@ import { getOrders } from "../../services/getOrders";
 export default function Profile() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [selectedOrder, setSelectedOrder] = useState(null); 
+  const [selectedOrder, setSelectedOrder] = useState(null);
   const [orders, setOrders] = useState([]);
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -54,6 +54,7 @@ export default function Profile() {
     <>
       <div className="profile-container">
         <h2>Your Profile</h2>
+        <img src="/public/hwcfalqa.png" alt="user-img" />
         <h3>Welcome, {user?.email}!</h3>
 
         <h3>Order History</h3>
