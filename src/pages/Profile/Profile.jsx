@@ -22,7 +22,10 @@ export default function Profile() {
 
   const fetchOrders = () => {
     if (user) {
-      getOrders(user.uid).then(setOrders);
+      getOrders(user.uid).then((orders) => {
+        const sortedOrders = orders.sort((a, b) => b.createdAt - a.createdAt);
+        setOrders(sortedOrders);
+      });
     }
   };
 
@@ -54,7 +57,7 @@ export default function Profile() {
     <>
       <div className="profile-container">
         <h2>Your Profile</h2>
-        <img src="/public/hwcfalqa.png" alt="user-img" />
+        <img src="/hwcfalqa.png" alt="user-img" />
         <h3>Welcome, {user?.email}!</h3>
 
         <h3>Order History</h3>

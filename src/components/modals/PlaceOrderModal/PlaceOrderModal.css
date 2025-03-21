@@ -21,14 +21,18 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.btn-confirm {
-  background: green;
+.btn-confirm-order {
+  background: rgb(0, 205, 0);
   color: white;
   padding: 10px;
   border: none;
   margin: 5px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.btn-confirm-order:hover {
+  background: green;
 }
 
 .btn-cancel {

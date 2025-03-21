@@ -1,3 +1,4 @@
+import "./EditOrderModal.css";
 import { useState } from "react";
 import { updateOrder } from "../../../services/updateOrder";
 

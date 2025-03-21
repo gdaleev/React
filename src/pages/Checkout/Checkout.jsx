@@ -45,7 +45,7 @@ export default function Checkout() {
       await addOrder(user.uid, state.cart, total, address, payment, notes);
       clearCart();
       alert("Order placed successfully!");
-      navigate("/");
+      navigate("/profile");
     } catch {
       alert("Failed to place the order. Please try again.");
     }

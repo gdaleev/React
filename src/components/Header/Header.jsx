@@ -10,7 +10,7 @@ export default function Header() {
       <header>
         <nav>
           <div className="logo">
-            <Link to="/"><img src="/public/clipper_4034863.png" alt="" /></Link>
+            <Link to="/"><img src="/clipper_4034863.png" alt="" /></Link>
           </div>
           <ul>
             <li>

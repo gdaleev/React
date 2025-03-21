@@ -12,7 +12,7 @@ export default function PlaceOrderModal({ closeModal, confirmOrder, orderDetails
         {notes && <p><strong>Notes:</strong> {notes}</p>}
 
         <div className="modal-buttons">
-          <button onClick={confirmOrder} className="btn-confirm">
+          <button onClick={confirmOrder} className="btn-confirm-order">
             Confirm Order
           </button>
           <button onClick={closeModal} className="btn-cancel">
