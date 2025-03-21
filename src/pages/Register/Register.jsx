@@ -14,6 +14,11 @@ export default function Register() {
   async function handleRegister(e) {
     e.preventDefault();
 
+    if (!email || !password || !confirmPassword) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
@@ -23,7 +28,7 @@ export default function Register() {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/profile");
+      navigate("/");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         setError("Email already exists.");
@@ -46,7 +51,6 @@ export default function Register() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
 
           <label htmlFor="password">Password:</label>
@@ -56,7 +60,6 @@ export default function Register() {
             placeholder="Create a password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
 
           <label htmlFor="confirm-password">Confirm Password:</label>
@@ -66,7 +69,6 @@ export default function Register() {
             placeholder="Confirm your password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            required
           />
 
           <button type="submit">Sign Up</button>

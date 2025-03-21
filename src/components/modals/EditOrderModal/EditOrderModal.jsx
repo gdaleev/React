@@ -51,15 +51,14 @@ export default function EditOrderModal({ order, closeModal, refreshOrders }) {
                 placeholder="Enter new address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                required
               />
 
               <label>Payment Method:</label>
               <select
                 value={payment}
                 onChange={(e) => setPayment(e.target.value)}
-                required
               >
+                <option value="">Select a payment method</option>
                 <option value="credit-card">Credit Card</option>
                 <option value="paypal">PayPal</option>
                 <option value="cash">Cash on Delivery</option>

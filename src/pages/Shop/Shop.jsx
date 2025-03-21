@@ -6,6 +6,7 @@ import "./Shop.css";
 
 export default function Shop() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -18,6 +19,8 @@ export default function Shop() {
         setProducts(productsArray);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -28,7 +31,9 @@ export default function Shop() {
     <>
       <h2>Shop</h2>
       <div className="shop-container">
-        {products.length > 0 ? (
+        {loading ? (
+          <div className="loader"></div>
+        ) : products.length > 0 ? (
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))

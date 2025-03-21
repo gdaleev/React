@@ -51,7 +51,7 @@ export default function Checkout() {
         autoClose: 3000,
         hideProgressBar: true,
       });
-      navigate("/profile");
+      navigate("/profile/${user.uid}");
     } catch (error) {
       console.error(error);
       toast.error("Failed to place the order. Please try again.", {
@@ -77,7 +77,6 @@ export default function Checkout() {
             placeholder="Enter your address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            required
           />
 
           <label htmlFor="payment">Payment Method:</label>
@@ -85,7 +84,6 @@ export default function Checkout() {
             id="payment"
             value={payment}
             onChange={(e) => setPayment(e.target.value)}
-            required
           >
             <option value="">Select a payment method</option>
             <option value="credit-card">Credit Card</option>

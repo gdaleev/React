@@ -18,9 +18,10 @@ export default function ProductDetails() {
   }
 
   useEffect(() => {
+    let isMounted = true;
+
     async function fetchProduct() {
       try {
-        console.log("Fetching product with ID:", id);
         const productRef = doc(db, "products", id);
         const productSnap = await getDoc(productRef);
 
@@ -32,39 +33,49 @@ export default function ProductDetails() {
       } catch (error) {
         console.error("Error fetching product:", error);
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     }
 
     fetchProduct();
+
+    return () => {
+      isMounted = false;
+    };
   }, [id]);
 
-  if (loading) {
-    return <p>Loading product details...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading product details...</p>;
+  // }
 
-  if (!product) {
-    return <p>Product not found.</p>;
-  }
+  // if (!product) {
+  //   return <p>Product not found.</p>;
+  // }
 
   return (
     <>
-      <div className="product-details">
+      {loading ? (
+        <div className="loader"></div> 
+      ) : product ? (
+        <div className="product-details">
           <img
             src={product.imageUrl}
             alt={product.name}
             className="product-image"
           />
-
-        <div className="product-data">
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <p className="price">${product.price}</p>
-          <button onClick={handleAddToCart} className="add-to-cart-btn">
-            Add to Cart
-          </button>
+  
+          <div className="product-data">
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
+            <p className="price">${product.price}</p>
+            <button onClick={handleAddToCart} className="add-to-cart-btn">
+              Add to Cart
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <p>Product not found.</p>
+      )}
     </>
-  );
+  );  
 }

@@ -6,6 +6,7 @@ import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 
 export default function FeaturedProducts() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -20,6 +21,8 @@ export default function FeaturedProducts() {
         setProducts(productList);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -31,11 +34,18 @@ export default function FeaturedProducts() {
       <section className="featured-products">
         <h2>Featured Products</h2>
         <div className="product-grid">
-    {products.map((product) => (
-      <ProductCard key={product.id} product={product} />
-    ))}
-  </div>
+          {loading ? (
+            <div className="loader"></div>
+          ) : products.length > 0 ? (
+            products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          ) : (
+            <p>No products available.</p>
+          )}
+        </div>
       </section>
     </>
   );
+  
 }

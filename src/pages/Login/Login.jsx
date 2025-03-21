@@ -13,6 +13,12 @@ export default function Login() {
 
   async function handleLogin(e) {
     e.preventDefault();
+
+    if (!email || !password) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
     setError(null);
 
     try {
@@ -36,7 +42,6 @@ export default function Login() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
 
           <label htmlFor="password">Password:</label>
@@ -46,7 +51,6 @@ export default function Login() {
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
 
           <button type="submit">Sign In</button>

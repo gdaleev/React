@@ -12,6 +12,7 @@ export default function Profile() {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -25,12 +26,22 @@ export default function Profile() {
     }
   }, [user, id, navigate]);
 
-  const fetchOrders = () => {
+  const fetchOrders = async () => {
     if (user) {
-      getOrders(user.uid).then((orders) => {
+      setLoading(true);
+      try {
+        const orders = await getOrders(user.uid);
         const sortedOrders = orders.sort((a, b) => b.createdAt - a.createdAt);
-        setOrders(sortedOrders);
-      });
+        setOrders(sortedOrders); 
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+      } finally {
+        setLoading(false);
+      }
+      // getOrders(user.uid).then((orders) => {
+      //   const sortedOrders = orders.sort((a, b) => b.createdAt - a.createdAt);
+      //   setOrders(sortedOrders);
+      // });
     }
   };
 
@@ -66,7 +77,10 @@ export default function Profile() {
         <h3>Welcome, {user?.email}!</h3>
 
         <h3>Order History</h3>
-        {orders.length === 0 ? (
+
+        {loading ? ( // ✅ Show loader while fetching
+          <div className="loader"></div>
+        ) : orders.length === 0 ? (
           <p>No orders found.</p>
         ) : (
           orders.map((order) => (
