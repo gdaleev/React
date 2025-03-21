@@ -15,6 +15,7 @@ import Checkout from "./pages/Checkout/Checkout";
 import Profile from "./pages/Profile/Profile";
 import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./components/Layout/Layout";
+import { ToastContainer } from "react-toastify";
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           }
         />
       </Routes>
+      <ToastContainer/>
       </Layout>
     </Router>
   );

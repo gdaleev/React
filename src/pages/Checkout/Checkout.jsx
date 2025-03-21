@@ -4,6 +4,8 @@ import { useAuth } from "../../context/AuthContext";
 import PlaceOrderModal from "../../components/modals/PlaceOrderModal/PlaceOrderModal";
 import { addOrder } from "../../services/addOrder";
 import { useCart } from "../../context/CartContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Checkout.css";
 
 export default function Checkout() {
@@ -44,10 +46,19 @@ export default function Checkout() {
     try {
       await addOrder(user.uid, state.cart, total, address, payment, notes);
       clearCart();
-      alert("Order placed successfully!");
+      toast.success("Order placed successfully.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
       navigate("/profile");
-    } catch {
-      alert("Failed to place the order. Please try again.");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to place the order. Please try again.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
     }
   };
 

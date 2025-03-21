@@ -1,6 +1,8 @@
 import "./EditOrderModal.css";
 import { useState } from "react";
 import { updateOrder } from "../../../services/updateOrder";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function EditOrderModal({ order, closeModal, refreshOrders }) {
   const [address, setAddress] = useState(order.address || "");
@@ -19,10 +21,18 @@ export default function EditOrderModal({ order, closeModal, refreshOrders }) {
       await updateOrder(order.id, { address, payment, notes });
       refreshOrders();
       closeModal();
-      alert("Order updated successfully!");
+      toast.success("Order updated successfully", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
     } catch (err) {
       console.error(err);
-      alert("Failed to update order!");
+      toast.error("Failed to update the order. Please try again.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
     }
   };
 

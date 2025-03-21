@@ -4,6 +4,8 @@ import RemoveProductModal from "../../components/modals/RemoveProductModal/Remov
 import "./Cart.css";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Cart() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -14,7 +16,11 @@ export default function Cart() {
 
   const handleCheckout = () => {
     if (!user) {
-      alert("You must be logged in to checkout.");
+      toast.error("You must be logged in to checkout.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
       navigate("/login");
       return;
     }
