@@ -5,6 +5,7 @@ import DeleteOrderModal from "../../components/modals/DeleteOrderModal/DeleteOrd
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { getOrders } from "../../services/getOrders";
+import { useParams } from "react-router-dom";
 
 export default function Profile() {
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -12,13 +13,17 @@ export default function Profile() {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [orders, setOrders] = useState([]);
   const { user } = useAuth();
+  const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (user === undefined) return; 
     if (!user) {
-      navigate("/");
+      navigate("/login");
+    } else if (id !== user.uid) {
+      navigate(`/profile/${user.uid}`);
     }
-  }, [user, navigate]);
+  }, [user, id, navigate]);
 
   const fetchOrders = () => {
     if (user) {

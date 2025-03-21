@@ -32,7 +32,7 @@ export default function Header() {
             {user ? (
               <>
                 <li>
-                  <Link to="/profile">Your Profile</Link>
+                  <Link to="/profile/${user.uid}">Your Profile</Link>
                 </li>
                 <li>
                   <Link onClick={logout}>Logout</Link>
